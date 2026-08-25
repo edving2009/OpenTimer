@@ -71,7 +71,6 @@ namespace OpenTimer
 
             SetReadyState();
         }
-
         private void Timer_Tick(object sender, EventArgs e)
         {
             remainingSeconds--;
@@ -93,7 +92,8 @@ namespace OpenTimer
         private void UpdateTimeDisplay()
         {
             TimeSpan time = TimeSpan.FromSeconds(remainingSeconds);
-            TimeText.Text = time.ToString(@"mm\:ss");
+            int totalMinutes = (int)time.TotalMinutes;
+            TimeText.Text = $"{totalMinutes:D2}:{time.Seconds:D2}";
         }
 
         // ---------------------------------------
